@@ -36,7 +36,33 @@ Page({
       2 没有旧数据 直接发送新请求
       3 有旧数据 同时旧的数据也没有过期 就使用本地存储的旧数据即可
     */
-    this.getCates()
+   //获取本地的数据
+   const Cates=wx.getStorageSync("cates");
+   //判断 是否存在本地数据
+   if(!Cates){
+     //没有则重新发送请求获取数据
+     this.getCates()
+   }else{
+     //有本地数据 判断是否过期 设过期时间为5分钟
+     if(Date.now()-Cates.time>1000*300){
+       //过期 重新发送请求
+       this,getCates();
+     }else{
+      //  console.log("旧数据")
+       //没有过期 使用本地数据渲染
+       this.Cates=Cates.data;
+       //左侧数据
+       let leftMenuList=this.Cates.map(v=>v.cat_name);
+       //构造右侧数据
+       let rightContent=this.Cates[0].children;
+       
+       this.setData({
+         leftMenuList,
+         rightContent
+       })
+     }
+   }
+
   },
   getCates(){
     request({
@@ -45,6 +71,8 @@ Page({
     .then((res)=>{
       //获得接口数据
       this.Cates=res.data.message;
+      //将数据存入本地
+      wx.setStorageSync("cates",{time:Date.now(),data:this.Cates})
       //构造左侧数据
       let leftMenuList=this.Cates.map(v=>v.cat_name);
       //构造右侧数据
