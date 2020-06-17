@@ -22,6 +22,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /*
+    0 web中的本地存储和小程序中的本地存储的区别
+      1 写代码的方式不一样
+      web : localStorage.setItem("key","value") localStorage.getItem("key")
+      小程序中: wx.setStorageSync("key","value") wx.getStorageSync("key")
+      2 存的时候有没有做类型转换
+      web: 不管存入什么类型的数据 都会先调用toString()把数据变成字符串 再存入
+      小程序：不会类型转换 存什么类型数据 就获取什么类型数据
+
+      为分类页面设置缓存
+      1 先判断本地存储中有没有旧的数据{time:Date.now(),data:[...]}
+      2 没有旧数据 直接发送新请求
+      3 有旧数据 同时旧的数据也没有过期 就使用本地存储的旧数据即可
+    */
     this.getCates()
   },
   getCates(){
