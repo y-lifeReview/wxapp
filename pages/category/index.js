@@ -13,7 +13,9 @@ Page({
     //右侧数据
     rightContent:[],
     //当前选中左侧的菜单
-    currentIndex:0
+    currentIndex:0,
+    //右侧滚动条距离顶部的位置
+    scroolTop:0
   },
   //获得接口数据
   Cates:[],
@@ -46,7 +48,7 @@ Page({
      //有本地数据 判断是否过期 设过期时间为5分钟
      if(Date.now()-Cates.time>1000*300){
        //过期 重新发送请求
-       this,getCates();
+       this.getCates();
      }else{
       //  console.log("旧数据")
        //没有过期 使用本地数据渲染
@@ -95,7 +97,9 @@ Page({
     let rightContent=this.Cates[index].children;
     this.setData({
       currentIndex:index,
-      rightContent
+      rightContent,
+      //设置右侧滚动条在左侧切换时回到顶部
+      scroolTop:0
     })
   }
 
