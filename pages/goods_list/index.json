@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Serchinput":"../../components/Serchinput/Serchinput",
+    "Tabs":"../../components/Tabs/Tabs"
+
+  },
+  "navigationBarTitleText": "商品列表"
+
 }
