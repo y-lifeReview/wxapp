@@ -7,7 +7,8 @@
         wx:for="{{goodsObj.pics}}"
         wx:key="pics_id"
         bindtap="handelPreviewImage"
-        data-url="{{item.pics_mid}}">
+        data-url="{{item.pics_mid}}">  <!-- data-*** 自定义属性传值 通过e.currentTarget.dataset.***取值 -->
+      
             <image mode="widthFix" src="{{item.pics_mid}}"></image>
         </swiper-item>
     </swiper>
