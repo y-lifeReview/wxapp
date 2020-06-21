@@ -11,12 +11,12 @@
     "pages/user/index",
     "pages/feedback/index",
     "pages/login/index", 
-    "pages/auth/index",
+    "pages/auth/index",  
     "pages/pay/index" 
   ], 
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#ed4450",
+    "navigationBarBackgroundColor": "#ed4450", 
     "navigationBarTitleText": "购物商城",
     "navigationBarTextStyle":"white"
   },
