@@ -14,6 +14,31 @@ Page({
   onLoad: function (options) {
 
   },
+  //收获地址
+  handleChooseAddress(){
+    // console.log("地址")
+    //获取用户地址权限状态
+    wx.getSetting({
+      success: (result)=>{
+        const scopeAddress=result.authSetting["scope.address"]
+        if(scopeAddress===true||scopeAddress===undefined){
+          wx.chooseAddress({
+            success: (result1)=>{
+              console.log(result1)
+            },
+            
+          });
+        }else{
+          console.log("11111")
+          wx.openSetting({
+            success: (result)=>{
+                console.log("111")
+            }
+          });
+        }
+      },
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

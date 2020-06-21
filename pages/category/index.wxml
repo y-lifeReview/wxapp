@@ -6,7 +6,7 @@
             <view class="menu_item {{index===currentIndex?'active':''}}"
              wx:for="{{leftMenuList}}"
             wx:key="*this"
-            bindtap="handleItemTap"
+            bindtap="handleItemTap" 
             data-index="{{index}}"
             >{{item}}</view>
         </scroll-view>
