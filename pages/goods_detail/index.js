@@ -53,6 +53,7 @@ Page({
     if(index===-1){
       //不存在 第一次添加
       this.GoodsInfo.num=1;
+      this.GoodsInfo.checked=true;
       cart.push(this.GoodsInfo)
     }else{
       //已经存在购物车数据num++
