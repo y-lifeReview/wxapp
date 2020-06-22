@@ -29,10 +29,10 @@ Page({
             
           });
         }else{
-          console.log("11111")
+          // console.log("11111")
           wx.openSetting({
             success: (result)=>{
-                console.log("111")
+                // console.log("111")
             }
           });
         }
