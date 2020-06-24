@@ -1,74 +1,92 @@
 //promise 形式 getSetting
-export const getSetting=()=>{
-    return new Promise((resolve,reject)=>{
+export const getSetting = () => {
+    return new Promise((resolve, reject) => {
         wx.getSetting({
-            success: (result)=>{
+            success: (result) => {
                 resolve(result)
             },
-            fail: (err)=>{
+            fail: (err) => {
                 reject(err)
             },
-           
+
         });
     })
 }
 //promise 形式 chooseAddress
-export const chooseAddress=()=>{
-    return new Promise((resolve,reject)=>{
+export const chooseAddress = () => {
+    return new Promise((resolve, reject) => {
         wx.chooseAddress({
-            success: (result)=>{
+            success: (result) => {
                 resolve(result)
             },
-            fail: (err)=>{
+            fail: (err) => {
                 reject(err)
             },
-           
+
         });
     })
 }
 //promise 形式 openSetting
-export const openSetting=()=>{
-    return new Promise((resolve,reject)=>{
+export const openSetting = () => {
+    return new Promise((resolve, reject) => {
         wx.openSetting({
-            success: (result)=>{
+            success: (result) => {
                 resolve(result)
             },
-            fail: (err)=>{
+            fail: (err) => {
                 console.log(err)
             },
-            complete: ()=>{}
+            complete: () => {}
         });
     })
 }
 //promise 形式 showModal
-export const showModal=({content})=>{
-    return new Promise((resolve,reject)=>{
+export const showModal = ({
+    content
+}) => {
+    return new Promise((resolve, reject) => {
         wx.showModal({
             title: '提示',
             content: content,
             success: (result) => {
                 resolve(result)
             },
-            fail:(err)=>{
+            fail: (err) => {
                 reject(err)
             }
-            
-          });
+
+        });
     })
 }
 //promise 形式 showToast
-export const showToast=({title})=>{
-    return new Promise((resolve,reject)=>{
+export const showToast = ({
+    title
+}) => {
+    return new Promise((resolve, reject) => {
         wx.showToast({
             title: title,
             icon: 'none',
             success: (result) => {
                 resolve(result)
             },
-            fail:(err)=>{
+            fail: (err) => {
                 reject(err)
             }
-            
-          });
+
+        });
+    })
+}
+//promise 形式 login
+export const login = () => {
+    return new Promise((resolve, reject) => {
+        wx.login({
+            timeout:10000,
+            success: (result)=>{
+                resolve(result)
+            },
+            fail: (err)=>{
+                reject(err)
+            },
+        });
     })
 }
