@@ -28,6 +28,7 @@ page {
   border-radius: 50%;
 }
 .user_info_wrap .user_img_wrap .user_info .user_name {
+  color: #666666;
   margin-top: 40rpx;
   font-size: 40rpx;
 }
