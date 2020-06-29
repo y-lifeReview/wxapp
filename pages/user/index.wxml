@@ -65,6 +65,7 @@
             </view>
             <view class="app_info_item">
                 <text>意见反馈</text>
+                <button open-type="feedback"></button>
             </view>
             <view class="app_info_item">
                 <text>关于我们</text>

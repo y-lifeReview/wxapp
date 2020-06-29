@@ -33,6 +33,10 @@ Page({
       url: '/home/swiperdata'
     })
     .then(result => {
+      // console.log(result)
+    for(let i=0;i<result.length;i++){
+      result[i].navigator_url=result[i].navigator_url.replace(/main/g,'index')
+    }
       this.setData({
         swiperList: result
       })
@@ -44,6 +48,8 @@ Page({
       url: '/home/catitems'
     })
     .then(result => {
+        result[0].navigator_url=result[0].navigator_url.replace(/main/g,'index')
+        // console.log(result)
       this.setData({
         catesList: result
       })
@@ -55,6 +61,12 @@ Page({
       url: '/home/floordata'
     })
     .then(result => {
+      for(let i=0;i<result.length;i++){
+        for(let j=0;j<result[i].product_list.length;j++){
+          result[i].product_list[j].navigator_url=result[i].product_list[j].navigator_url.replace(/goods_list/,'goods_list/index')
+        }
+      }
+      console.log(result)
       this.setData({
         floorList: result
       })
